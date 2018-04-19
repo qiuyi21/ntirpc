@@ -617,6 +617,7 @@ __rpc_fd2sockinfo(int fd, struct __rpc_sockinfo *sip)
 	struct sockaddr_storage ss;
 
 	len = sizeof(ss);
+	memset(&ss, 0, len);
 	if (getsockname(fd, (struct sockaddr *)&ss, &len) < 0)
 		return 0;
 	sip->si_alen = len;
